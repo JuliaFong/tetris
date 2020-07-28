@@ -1,6 +1,6 @@
-import style from 'styled-components'
+import styled from 'styled-components'
 
-export const StyledDisplay = style.div`
+export const StyledDisplay = styled.div`
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -8,7 +8,7 @@ export const StyledDisplay = style.div`
     padding 20px;
     border: 4px solid #333;
     min-height: 30px;
-    width: 100%
+    width: 100%;
     border-radius: 20px;
     color: ${props => (props.gameOver ? 'red' : '#999')};
     background: #000;
