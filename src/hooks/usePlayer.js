@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
-
 import { TETROMINOS, randomTetromino } from '../tetrominos';
 import { STAGE_WIDTH } from '../gameHelpers';
+
 
 export const usePlayer = () => {
   const [player, setPlayer] = useState({
@@ -21,7 +21,10 @@ export const usePlayer = () => {
   };
 
   const playerRotate = (stage, dir) => {
+    const clonedPlayer = JSON.parse(JSON.stringify(player));
+    clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, dir);
 
+    setPlayer(clonedPlayer);
   }
 
   const updatePlayerPos = ({ x, y, collided }) => {
@@ -40,5 +43,5 @@ export const usePlayer = () => {
     })
   }, [])
 
-  return [player, updatePlayerPos, resetPlayer];
+  return [player, updatePlayerPos, resetPlayer, playerRotate];
 }
