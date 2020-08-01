@@ -88,7 +88,6 @@ const Tetris = () => {
     }
   }
 
-
   return (
     <StyledTetrisWrapper 
       role="button" 
