@@ -11,14 +11,14 @@ export const usePlayer = () => {
     collided: false,
   });
 
-  const rotate = (matrix, dir) => {
+  function rotate(matrix, dir) {
     //make the rows to become columns (transpose)
-    const rotatedTetro = matrix.map((_, index) => 
+    const mtrix = matrix.map((_, index) => 
     matrix.map(col => col[index]),
     );
     //Reverse row to get a rotated matrix
-    if (dir > 0) return rotatedTetro.map(row => row.reverse());
-    return rotatedTetro.reverse();
+    if (dir > 0) return mtrix.map(row => row.reverse());
+    return mtrix.reverse();
   };
 
   const playerRotate = (stage, dir) => {
