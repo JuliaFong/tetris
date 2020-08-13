@@ -2,7 +2,10 @@ export const STAGE_WIDTH = 12;
 export const STAGE_HEIGHT = 20;
 
 export const createStage = () =>
-  Array.from(Array(STAGE_HEIGHT), () => Array(STAGE_WIDTH).fill([0, 'clear']));
+  Array.from(Array(STAGE_HEIGHT), () =>
+    new Array(STAGE_WIDTH).fill([0, 'clear']),
+  );
+
 
 export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
   for (let y = 0; y < player.tetromino.length; y += 1) {
@@ -16,6 +19,12 @@ export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
           //our move is inside the game areas width (x)
           !stage[y + player.pos.y + moveY][x + player.pos.x + moveX] ||
           //  the cell we're moving to isn't set to clear
+
+          //  Check that our move is inside the game areas height (y)
+          // We shouldn't go through the bottom of the play area
+          !stage[y + player.pos.y + moveY] ||
+          
+          !stage[y + player.pos.y + moveY][x + player.pos.x + moveX] ||
           stage[y + player.pos.y + moveY][x + player.pos.x + moveX][1] !==
             'clear'
         ) {
@@ -24,6 +33,7 @@ export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
       }
     }
   }
+
   // If everything above is false
   return false;
 };
