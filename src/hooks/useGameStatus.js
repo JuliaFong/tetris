@@ -1,3 +1,4 @@
+  
 import { useState, useEffect, useCallback } from 'react';
 
 export const useGameStatus = rowsCleared => {
@@ -20,3 +21,4 @@ export const useGameStatus = rowsCleared => {
 
   return [score, setScore, rows, setRows, level, setLevel];
 };
+
