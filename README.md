@@ -15,3 +15,6 @@
 
 # Credits
 * project built from [Weibenfalk](https://weibenfalk.teachable.com/courses/658431/lectures/11734038)
+
+[!Screenshot](game.png)
+[!Screenshot](over.png)
